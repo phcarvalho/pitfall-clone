@@ -1,3 +1,63 @@
 [gd_scene format=3 uid="uid://bnngva1qnl5sv"]
 
-[node name="Node2D" type="Node2D" unique_id=1419837085]
+[ext_resource type="Texture2D" uid="uid://cdvt4yvgxuxjf" path="res://assets/alligator_spritesheet.png" id="1_18w6k"]
+[ext_resource type="Script" uid="uid://dukvtaie3krwg" path="res://scripts/alligator.gd" id="1_kh2uy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrxrs"]
+atlas = ExtResource("1_18w6k")
+region = Rect2(0, 0, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57tcj"]
+atlas = ExtResource("1_18w6k")
+region = Rect2(16, 0, 16, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4q2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrxrs")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57tcj")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh2uy"]
+size = Vector2(16, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18w6k"]
+size = Vector2(4, 4)
+
+[node name="Alligator" type="StaticBody2D" unique_id=1500070078]
+position = Vector2(1, 0)
+collision_layer = 8
+script = ExtResource("1_kh2uy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1309712753]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_s4q2u")
+animation = &"opened"
+
+[node name="ClosedShape" type="CollisionShape2D" parent="." unique_id=180419178]
+light_mask = 8
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_kh2uy")
+
+[node name="OpenedShape" type="CollisionShape2D" parent="." unique_id=9750854]
+position = Vector2(6, -2)
+shape = SubResource("RectangleShape2D_18w6k")
+disabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=497611470]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
