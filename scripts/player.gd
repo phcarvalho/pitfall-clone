@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 50
-@export var jump_speed := -80
+@export var jump_speed := -100
 @export var gravity := 300
 
 var hurt_speed_penalty := 0.5
@@ -10,6 +10,9 @@ var is_being_hurt := false
 var is_facing_right := true
 
 @onready var anim := $AnimatedSprite2D
+
+func _ready() -> void:
+	game_state.player = self
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -45,3 +48,18 @@ func _process(delta):
 		
 func set_is_being_hurt(value: bool):
 	is_being_hurt = value
+	
+func die():
+	get_tree().paused = true
+	
+	game_state.lifes -= 1
+	if game_state.lifes >= 0:
+		var timer = get_tree().create_timer(2, true, true)
+		await timer.timeout
+		position.x = 30
+		get_tree().paused = false
+		return true
+		
+	return false
+	
+	

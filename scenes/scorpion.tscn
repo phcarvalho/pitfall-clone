@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ygothmf7ssyn"]
+
+[ext_resource type="Texture2D" uid="uid://cag3oipe80y1r" path="res://assets/scorpion_spritesheet.png" id="1_uytbs"]
+[ext_resource type="Script" uid="uid://dqv6lvci756yy" path="res://scripts/scorpion.gd" id="1_wes4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uytbs"]
+size = Vector2(12, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wes4n"]
+atlas = ExtResource("1_uytbs")
+region = Rect2(0, 0, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcw2v"]
+atlas = ExtResource("1_uytbs")
+region = Rect2(0, 0, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gam5m"]
+atlas = ExtResource("1_uytbs")
+region = Rect2(16, 0, 16, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62dlh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wes4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcw2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gam5m")
+}],
+"loop": true,
+"name": &"move",
+"speed": 8.0
+}]
+
+[node name="Scorpion" type="Area2D" unique_id=550952615]
+collision_layer = 8
+script = ExtResource("1_wes4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600098837]
+position = Vector2(3, -2.5)
+shape = SubResource("RectangleShape2D_uytbs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1296340697]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_62dlh")
+animation = &"move"
+frame_progress = 0.5324324
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

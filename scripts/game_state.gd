@@ -3,6 +3,7 @@ extends Node
 var score := 2000
 var game_time := 1200.0
 var lifes := 2
+var player: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
