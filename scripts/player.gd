@@ -40,8 +40,7 @@ func _process(delta):
 		if not is_being_hurt:
 			anim.play("running")
 			
-		var direction = Input.get_axis("walk_left", "walk_right")
-		is_facing_right = direction > 0
+		is_facing_right = velocity.x > 0
 		anim.flip_h = !is_facing_right
 	elif not is_being_hurt:
 		anim.play("default")

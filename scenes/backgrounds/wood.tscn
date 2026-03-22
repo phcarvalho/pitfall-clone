@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c5jn8gfpa5jlb"]
+
+[ext_resource type="Texture2D" uid="uid://dnd30bt3xeb4j" path="res://ref-01.png" id="1_ydysm"]
+[ext_resource type="Texture2D" uid="uid://cntp0cgieewd3" path="res://assets/wood.png" id="2_1orvc"]
+
+[node name="Wood" type="Node2D" unique_id=315179444]
+
+[node name="Ref01" type="Sprite2D" parent="." unique_id=2037350158]
+visible = false
+modulate = Color(1, 1, 1, 0.2784314)
+z_index = 10
+position = Vector2(159.83823, 84.499985)
+scale = Vector2(0.144853, 0.14485295)
+texture = ExtResource("1_ydysm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1085405775]
+offset_left = -4.0
+offset_top = -55.0
+offset_right = 4.0
+color = Color(0.26666668, 0.26666668, 0, 1)
+
+[node name="Wood" type="Sprite2D" parent="." unique_id=982847440]
+position = Vector2(0, -60)
+texture = ExtResource("2_1orvc")

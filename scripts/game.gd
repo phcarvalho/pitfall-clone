@@ -19,3 +19,5 @@ func _process(delta: float) -> void:
 		for i in range(current_life):
 			life_text += "|"
 		lifes.text = life_text
+		
+	draw_line(Vector2(180, 50), Vector2(220, 110), Color.RED, 1.0, false)
