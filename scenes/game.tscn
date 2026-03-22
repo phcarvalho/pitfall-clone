@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://hxenkbf3o8tr"]
+
+[ext_resource type="Script" uid="uid://byhebqviqfre" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bb6ojijo7oi07" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://dnd30bt3xeb4j" path="res://ref-01.png" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://ca2pnii24pqwr" path="res://scenes/barrel.tscn" id="4_lbhrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(320, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(320, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
+font_size = 20
+
+[node name="Node2D" type="Node2D" unique_id=1285645777]
+script = ExtResource("1_lbhrr")
+
+[node name="Ref01" type="Sprite2D" parent="." unique_id=2012175373]
+visible = false
+modulate = Color(1, 1, 1, 0.2784314)
+z_index = 10
+position = Vector2(159.83823, 84.499985)
+scale = Vector2(0.144853, 0.14485295)
+texture = ExtResource("3_lnu2h")
+
+[node name="Background" type="ColorRect" parent="." unique_id=275594689]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.47843137, 0.6313726, 0.36078432, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1122945465]
+offset_right = 320.0
+offset_bottom = 43.0
+color = Color(0.23529412, 0.40392157, 0.10980392, 1)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=282375791]
+position = Vector2(160, 127)
+collision_layer = 2
+
+[node name="MainFloor" type="ColorRect" parent="Floor" unique_id=459182998]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -20.5
+offset_right = 160.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.75686276, 0.7529412, 0.28235295, 1)
+
+[node name="DarkerFloor" type="ColorRect" parent="Floor" unique_id=1876803632]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -3.0
+offset_right = 160.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54509807, 0.5647059, 0.14901961, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1438938549]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="Cave" type="StaticBody2D" parent="." unique_id=729980038]
+position = Vector2(160, 163)
+collision_layer = 2
+
+[node name="Background" type="ColorRect" parent="Cave" unique_id=1261530979]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CaveFloor" type="ColorRect" parent="Cave" unique_id=1073239525]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 11.0
+offset_right = 160.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54509807, 0.5647059, 0.14901961, 1)
+
+[node name="CaveCollisionShape2D" type="CollisionShape2D" parent="Cave" unique_id=949071928]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Barrel" parent="." unique_id=307973151 instance=ExtResource("4_lbhrr")]
+position = Vector2(261, 116)
+
+[node name="Player" parent="." unique_id=1354496428 instance=ExtResource("2_yqjtg")]
+position = Vector2(54, 113)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=117944729]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1440110188]
+offset_left = 49.0
+offset_top = 1.0
+offset_right = 88.0
+offset_bottom = 22.0
+scale = Vector2(2, 1)
+text = "1978"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 2
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1672067445]
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 87.5
+offset_bottom = 37.0
+scale = Vector2(2, 1)
+text = "19:47"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 2
+
+[node name="LifesLabel" type="Label" parent="CanvasLayer" unique_id=94880792]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 34.0
+offset_bottom = 37.0
+scale = Vector2(2, 1)
+text = "||"
+label_settings = SubResource("LabelSettings_iywne")
