@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cguigaw1p4ufb"]
+
+[ext_resource type="Script" uid="uid://dywgb6en3cxld" path="res://scripts/barrels_manager.gd" id="1_trv4w"]
+
+[node name="BarrelsManager" type="Node2D" unique_id=1219772566]
+script = ExtResource("1_trv4w")

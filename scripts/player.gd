@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var jump_speed := -100
 @export var gravity := 300
 
-var hurt_speed_penalty := 0.5
+var hurt_speed_penalty := 0.2
 
 var is_being_hurt := false
 var is_facing_right := true

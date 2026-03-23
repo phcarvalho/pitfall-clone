@@ -7,6 +7,9 @@ var is_facing_left := true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not game_state.player:
+		return
+		
 	var player_pos_x = game_state.player.position.x
 	if  position.x == player_pos_x:
 		anim.play("default")
@@ -32,3 +35,4 @@ func _on_body_entered(body: Node2D) -> void:
 		var reset = await body.die()
 		if reset:
 			position.x = floor(get_viewport_rect().size.x / 2)
+			position.y = 100

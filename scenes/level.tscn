@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dt2mm0o8vkl54"]
+
+[ext_resource type="Script" uid="uid://cobwh0o73gle1" path="res://scripts/level.gd" id="1_2r41h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(320, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(320, 8)
+
+[node name="Level" type="Node2D" unique_id=1026656982]
+script = ExtResource("1_2r41h")
+
+[node name="Cave" type="StaticBody2D" parent="." unique_id=1043069580]
+position = Vector2(160, 163)
+collision_layer = 2
+
+[node name="Background" type="ColorRect" parent="Cave" unique_id=354253854]
+z_index = -6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -25.0
+offset_right = 160.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CaveFloor" type="ColorRect" parent="Cave" unique_id=507328241]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 11.0
+offset_right = 160.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54509807, 0.5647059, 0.14901961, 1)
+
+[node name="CaveCollisionShape2D" type="CollisionShape2D" parent="Cave" unique_id=1207399611]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1964812294]
+position = Vector2(160, 127)
+collision_layer = 2
+
+[node name="MainFloor" type="ColorRect" parent="Floor" unique_id=2115312490]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -20.5
+offset_right = 160.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.75686276, 0.7529412, 0.28235295, 1)
+
+[node name="DarkerFloor" type="ColorRect" parent="Floor" unique_id=284490330]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -3.0
+offset_right = 160.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54509807, 0.5647059, 0.14901961, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2018241136]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="ObjectMarker" type="Node2D" parent="." unique_id=199822202]
+position = Vector2(261, 116)
+
+[node name="FloorMarker" type="Node2D" parent="." unique_id=504003291]
+position = Vector2(160, 116)
+
+[node name="CaveMarker" type="Node2D" parent="." unique_id=1881755567]
+position = Vector2(160, 174)

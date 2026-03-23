@@ -37,7 +37,6 @@ size = Vector2(16, 4)
 size = Vector2(4, 4)
 
 [node name="Alligator" type="StaticBody2D" unique_id=1500070078]
-position = Vector2(1, 0)
 collision_layer = 8
 script = ExtResource("1_kh2uy")
 

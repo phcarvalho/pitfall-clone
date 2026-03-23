@@ -1,10 +1,11 @@
 extends Area2D
 
-@export var is_static = false
-@export var speed = 50
+@export var is_static := true
+@export var count := 1
+var speed = 50
 
 @onready var anim = $AnimatedSprite2D
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
