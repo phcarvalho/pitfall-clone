@@ -30,11 +30,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh2uy"]
+atlas = ExtResource("1_18w6k")
+region = Rect2(0, 8, 16, 2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrxrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh2uy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kh2uy"]
-size = Vector2(16, 4)
+size = Vector2(14, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18w6k"]
-size = Vector2(4, 4)
+size = Vector2(2, 4)
 
 [node name="Alligator" type="StaticBody2D" unique_id=1500070078]
 collision_layer = 8
@@ -44,6 +59,11 @@ script = ExtResource("1_kh2uy")
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_s4q2u")
 animation = &"opened"
+
+[node name="AnimatedBottom" type="AnimatedSprite2D" parent="." unique_id=1350048183]
+z_index = 5
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_xrxrs")
 
 [node name="ClosedShape" type="CollisionShape2D" parent="." unique_id=180419178]
 light_mask = 8

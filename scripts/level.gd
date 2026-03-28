@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var object_marker := $ObjectMarker
 @onready var floor_marker := $FloorMarker
+@onready var player_floor_marker := $PlayerFloorMarker
 @onready var cave_marker := $CaveMarker
 
 var backgrounds := {
@@ -15,6 +16,17 @@ var backgrounds := {
 	"11": preload("res://scenes/backgrounds/background_04.tscn"),
 }
 
+var levels := {
+	"000": preload("res://scenes/Floors/floor_one_hole.tscn"),
+	"001": preload("res://scenes/Floors/floor_three_holes.tscn"),
+	"010": preload("res://scenes/Floors/floor_pit.tscn"),
+	"011": preload("res://scenes/Floors/floor_pit.tscn"),
+	"100": preload("res://scenes/Floors/floor_lake.tscn"),
+	"101": preload("res://scenes/Floors/floor_pit.tscn"),
+	"110": preload("res://scenes/Floors/floor_pit.tscn"),
+	"111": preload("res://scenes/Floors/floor_pit.tscn"),
+}
+
 var barrels_manager := preload("res://scenes/barrels_manager.tscn")
 var player := preload("res://scenes/player.tscn")
 var scorpion := preload("res://scenes/scorpion.tscn")
@@ -22,8 +34,8 @@ var wall := preload("res://scenes/wall.tscn")
 
 func _ready() -> void:
 	load_background()
-	load_barrel()
 	load_cave()
+	load_level()
 	spawn_player()
 
 func get_bits(value: int, start: int, size: int):
@@ -44,17 +56,49 @@ func load_background():
 	background.position = position
 	add_child(background)
 	
-func load_barrel():
-	var barrel_bits = get_bits(room, 0, 3)
+func load_item(has_treasure = false):
+	var item_bits = get_bits_text(get_bits(room, 0, 3), 3)
+	if has_treasure:
+		load_treasure()
+	elif item_bits != "110" and item_bits != "111":
+		# if it's not fire or snake it's a barrel
+		load_barrel(item_bits)
+	else:
+		# spawn fire / snake 
+		pass
+		
+	
+func load_treasure():
+	pass
+	
+	
+func load_barrel(item_bits):
 	var manager = barrels_manager.instantiate()
 	manager.position = object_marker.position
 	add_child(manager)
+	manager.spawn_barrels(item_bits)
 	
-	manager.spawn_barrels(get_bits_text(barrel_bits, 3))
+func load_level():
+	var level_bits = get_bits_text(get_bits(room, 3, 3), 3)
+	var level = levels.get(level_bits)
+	if not level:
+		level = levels["001"]
+
+	var level_instance = level.instantiate()
+	level_instance.position = floor_marker.position
+	add_child(level_instance)
+	
+	if ["100", "010", "011", "110", "111"].any(func (bits): bits == level_bits):
+		# items don't spawn in the alligator level
+		load_item(level_bits == "101")
+	else:
+		# in the alligator level we may have a vine
+		pass
+	
 	
 func spawn_player():
 	var position_x = 30 if is_player_on_left else get_viewport_rect().size.x - 30
-	var position_y = cave_marker.position.y if is_player_on_cave else floor_marker.position.y
+	var position_y = cave_marker.position.y if is_player_on_cave else player_floor_marker.position.y
 	var player_instance = player.instantiate()
 	player_instance.position = Vector2(position_x, position_y)
 	add_child(player_instance)

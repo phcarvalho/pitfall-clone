@@ -3,67 +3,124 @@
 [ext_resource type="Script" uid="uid://8ngfye033l8i" path="res://scripts/barrel.gd" id="1_ptqd7"]
 [ext_resource type="Texture2D" uid="uid://d4ifrbvvdkuh8" path="res://assets/barrel_spritesheet.png" id="2_n8wf6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhtw8"]
-size = Vector2(12, 11)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptqd7"]
 atlas = ExtResource("2_n8wf6")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8wf6"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhtw8"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(16, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdyii"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(32, 0, 16, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qowtj"]
 atlas = ExtResource("2_n8wf6")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(48, 0, 16, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p63pu"]
-atlas = ExtResource("2_n8wf6")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ywul"]
-atlas = ExtResource("2_n8wf6")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_043oi"]
-atlas = ExtResource("2_n8wf6")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4ucd5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p63pu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ptqd7")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_n8wf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhtw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdyii")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qowtj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p63pu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ywul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_043oi")
 }],
 "loop": true,
 "name": &"move",
 "speed": 4.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ywul"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_043oi"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ucd5"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(16, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdev8"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(32, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61w87"]
+atlas = ExtResource("2_n8wf6")
+region = Rect2(48, 8, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ete54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ywul")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_043oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ucd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61w87")
+}],
+"loop": true,
+"name": &"move",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhtw8"]
+size = Vector2(12, 11)
+
 [node name="Barrel" type="Area2D" unique_id=1944718160]
+z_as_relative = false
 collision_layer = 4
 script = ExtResource("1_ptqd7")
+
+[node name="AnimationUpper" type="AnimatedSprite2D" parent="." unique_id=1535903892]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_p63pu")
+animation = &"move"
+
+[node name="AnimationBottom" type="AnimatedSprite2D" parent="." unique_id=316051747]
+z_index = 2
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_ete54")
+animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037550947]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mhtw8")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1587597982]
-sprite_frames = SubResource("SpriteFrames_4ucd5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

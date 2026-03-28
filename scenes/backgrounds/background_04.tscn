@@ -15,41 +15,41 @@ color = Color(0.47843137, 0.6313726, 0.36078432, 1)
 z_index = -10
 
 [node name="Wood" parent="Woods" unique_id=315179444 instance=ExtResource("1_lii0e")]
-position = Vector2(21, 108)
+position = Vector2(61, 108)
 
 [node name="Wood2" parent="Woods" unique_id=562963824 instance=ExtResource("1_lii0e")]
-position = Vector2(88, 108)
+position = Vector2(128, 108)
 
 [node name="Wood3" parent="Woods" unique_id=2144777859 instance=ExtResource("1_lii0e")]
-position = Vector2(215, 108)
+position = Vector2(185, 108)
 
 [node name="Wood4" parent="Woods" unique_id=1213683247 instance=ExtResource("1_lii0e")]
-position = Vector2(282, 108)
+position = Vector2(252, 108)
 
 [node name="LeafsBackground" type="ColorRect" parent="." unique_id=1861676723]
 offset_right = 320.0
-offset_bottom = 46.0
+offset_bottom = 49.0
 color = Color(0.20392157, 0.36078432, 0.10980392, 1)
 
 [node name="Leafs" type="Node2D" parent="." unique_id=681634054]
 position = Vector2(193, 45)
 
 [node name="Leaf" type="Sprite2D" parent="Leafs" unique_id=1189846304]
-position = Vector2(-109, 4)
+position = Vector2(-104, 7)
 texture = ExtResource("2_igs5i")
 
 [node name="Leaf2" type="Sprite2D" parent="Leafs" unique_id=469449110]
-position = Vector2(-42, 2)
+position = Vector2(-37, 5)
 texture = ExtResource("2_igs5i")
 
 [node name="Leaf3" type="Sprite2D" parent="Leafs" unique_id=1887738143]
-position = Vector2(-176, 2)
+position = Vector2(-171, 5)
 texture = ExtResource("2_igs5i")
 
 [node name="Leaf4" type="Sprite2D" parent="Leafs" unique_id=1177068477]
-position = Vector2(26, 4)
+position = Vector2(31, 7)
 texture = ExtResource("2_igs5i")
 
 [node name="Leaf5" type="Sprite2D" parent="Leafs" unique_id=1058663982]
-position = Vector2(93, 2)
+position = Vector2(98, 5)
 texture = ExtResource("2_igs5i")

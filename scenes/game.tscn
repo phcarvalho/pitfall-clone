@@ -65,7 +65,7 @@ position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_yqjtg")
 
 [node name="CaveRight" type="Area2D" parent="." unique_id=530858059]
-position = Vector2(0, 174)
+position = Vector2(321, 174)
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveRight" unique_id=1497002561]

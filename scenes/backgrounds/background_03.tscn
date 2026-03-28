@@ -18,10 +18,10 @@ z_index = -10
 position = Vector2(21, 108)
 
 [node name="Wood2" parent="Woods" unique_id=562963824 instance=ExtResource("1_fsmvh")]
-position = Vector2(88, 108)
+position = Vector2(108, 108)
 
 [node name="Wood3" parent="Woods" unique_id=2144777859 instance=ExtResource("1_fsmvh")]
-position = Vector2(215, 108)
+position = Vector2(195, 108)
 
 [node name="Wood4" parent="Woods" unique_id=1213683247 instance=ExtResource("1_fsmvh")]
 position = Vector2(282, 108)
@@ -35,21 +35,39 @@ color = Color(0.20392157, 0.36078432, 0.10980392, 1)
 position = Vector2(193, 45)
 
 [node name="Leaf" type="Sprite2D" parent="Leafs" unique_id=1189846304]
-position = Vector2(-109, 4)
-texture = ExtResource("2_ew508")
-
-[node name="Leaf2" type="Sprite2D" parent="Leafs" unique_id=469449110]
-position = Vector2(-42, 2)
+position = Vector2(-96, 4)
 texture = ExtResource("2_ew508")
 
 [node name="Leaf3" type="Sprite2D" parent="Leafs" unique_id=1887738143]
-position = Vector2(-176, 2)
+position = Vector2(-176, 8)
 texture = ExtResource("2_ew508")
 
 [node name="Leaf4" type="Sprite2D" parent="Leafs" unique_id=1177068477]
-position = Vector2(26, 4)
+position = Vector2(13, 4)
 texture = ExtResource("2_ew508")
 
 [node name="Leaf5" type="Sprite2D" parent="Leafs" unique_id=1058663982]
-position = Vector2(93, 2)
+position = Vector2(93, 8)
 texture = ExtResource("2_ew508")
+
+[node name="Leaf6" type="Sprite2D" parent="Leafs" unique_id=1740318193]
+position = Vector2(-150, 4)
+texture = ExtResource("2_ew508")
+
+[node name="Leaf7" type="Sprite2D" parent="Leafs" unique_id=1435566397]
+position = Vector2(75, -5)
+texture = ExtResource("2_ew508")
+
+[node name="LeafsBackground2" type="ColorRect" parent="Leafs" unique_id=1270914580]
+offset_left = -210.0
+offset_top = -12.0
+offset_right = -126.0
+offset_bottom = 5.0
+color = Color(0.20392157, 0.36078432, 0.10980392, 1)
+
+[node name="LeafsBackground" type="ColorRect" parent="Leafs" unique_id=1758254403]
+offset_left = 47.0
+offset_top = -12.0
+offset_right = 127.0
+offset_bottom = 5.0
+color = Color(0.20392157, 0.36078432, 0.10980392, 1)

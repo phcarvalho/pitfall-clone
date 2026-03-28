@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dqv6lvci756yy" path="res://scripts/scorpion.gd" id="1_wes4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uytbs"]
-size = Vector2(12, 5)
+size = Vector2(11, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wes4n"]
 atlas = ExtResource("1_uytbs")
@@ -45,7 +45,7 @@ collision_layer = 8
 script = ExtResource("1_wes4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600098837]
-position = Vector2(3, -2.5)
+position = Vector2(1.5, -2.5)
 shape = SubResource("RectangleShape2D_uytbs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1296340697]

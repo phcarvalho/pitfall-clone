@@ -4,7 +4,8 @@ extends Area2D
 @export var count := 1
 var speed = 50
 
-@onready var anim = $AnimatedSprite2D
+@onready var anim_upper = $AnimationUpper
+@onready var anim_bottom = $AnimationBottom
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,7 +13,8 @@ func _process(delta: float) -> void:
 	if is_static:
 		return
 	
-	anim.play("move")
+	anim_upper.play("move")
+	anim_bottom.play("move")
 		
 	position.x += -speed * delta
 		

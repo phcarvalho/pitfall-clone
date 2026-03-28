@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed := 15
+var speed := 11
 var is_facing_left := true
 
 @onready var anim := $AnimatedSprite2D
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
-		var reset = await body.die()
+		var reset = await body.die(true)
 		if reset:
 			position.x = floor(get_viewport_rect().size.x / 2)
-			position.y = 100
+			

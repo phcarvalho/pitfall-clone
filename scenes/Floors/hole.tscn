@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b3gl6bx5dpmqw"]
+
+[ext_resource type="Script" uid="uid://bql00w24kksmr" path="res://scripts/hole.gd" id="1_sxjty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s65eg"]
+size = Vector2(26, 3)
+
+[node name="Hole" type="Area2D" unique_id=1615768739]
+script = ExtResource("1_sxjty")
+
+[node name="HoleBackground" type="ColorRect" parent="." unique_id=959282977]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.75686276, 0.7529412, 0.28235295, 1)
+
+[node name="Hole" type="ColorRect" parent="." unique_id=1772556653]
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 34.0
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="HoleFront" type="ColorRect" parent="." unique_id=1352032598]
+z_index = 1
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.75686276, 0.7529412, 0.28235295, 1)
+
+[node name="HoleArea" type="CollisionShape2D" parent="." unique_id=355956428]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_s65eg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

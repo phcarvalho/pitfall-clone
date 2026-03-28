@@ -7,6 +7,8 @@ size = Vector2(14, 40)
 
 [node name="Wall" type="StaticBody2D" unique_id=864613351]
 z_index = -5
+z_as_relative = false
+collision_layer = 16
 
 [node name="Wall" type="Sprite2D" parent="." unique_id=1566607686]
 position = Vector2(0, -20)
