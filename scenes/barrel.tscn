@@ -113,7 +113,7 @@ sprite_frames = SubResource("SpriteFrames_p63pu")
 animation = &"move"
 
 [node name="AnimationBottom" type="AnimatedSprite2D" parent="." unique_id=316051747]
-z_index = 2
+z_index = 5
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_ete54")
 animation = &"move"

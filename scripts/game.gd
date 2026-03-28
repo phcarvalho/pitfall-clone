@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var score = $CanvasLayer/ScoreLabel
-@onready var timer = $CanvasLayer/TimerLabel
+@onready var minutes_timer = $CanvasLayer/MinutesLabel
+@onready var seconds_timer = $CanvasLayer/SecondsLabel
 @onready var lifes = $CanvasLayer/LifesLabel
 
 @onready var current_life = game_state.lifes
@@ -16,7 +17,8 @@ func _process(delta: float) -> void:
 	var seconds_str = ("%d" % seconds).lpad(2, "0")
 	
 	score.text = "%d" % game_state.score
-	timer.text = "%d:%s" % [minutes, seconds_str]
+	minutes_timer.text = "%d" % minutes
+	seconds_timer.text = "%s" % seconds_str
 	
 	if current_life != game_state.lifes:
 		current_life = game_state.lifes
@@ -53,7 +55,7 @@ func load_new_level(new_room, on_left = false, on_cave = false):
 func do_load_new_level(new_room, on_left = false, on_cave = false):
 	game_state.current_room = new_room
 	var new_level = level.instantiate()
-	new_level.room = game_state.current_room
+	new_level.room = new_room
 	new_level.is_player_on_cave = on_cave
 	new_level.is_player_on_left = on_left
 	add_child(new_level)

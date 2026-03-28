@@ -56,10 +56,18 @@ func load_background():
 	background.position = position
 	add_child(background)
 	
-func load_item(has_treasure = false):
+func load_item(level_bits):
+	# no items if the level is the lake with alligators
+	if level_bits == "100":
+		return
+	
 	var item_bits = get_bits_text(get_bits(room, 0, 3), 3)
+	
+	# only level 101 has treasures
+	var has_treasure = level_bits == "101"
 	if has_treasure:
-		load_treasure()
+		load_treasure(item_bits)
+		
 	elif item_bits != "110" and item_bits != "111":
 		# if it's not fire or snake it's a barrel
 		load_barrel(item_bits)
@@ -68,7 +76,7 @@ func load_item(has_treasure = false):
 		pass
 		
 	
-func load_treasure():
+func load_treasure(item_bits):
 	pass
 	
 	
@@ -80,6 +88,7 @@ func load_barrel(item_bits):
 	
 func load_level():
 	var level_bits = get_bits_text(get_bits(room, 3, 3), 3)
+	print(level_bits)
 	var level = levels.get(level_bits)
 	if not level:
 		level = levels["001"]
@@ -88,12 +97,7 @@ func load_level():
 	level_instance.position = floor_marker.position
 	add_child(level_instance)
 	
-	if ["100", "010", "011", "110", "111"].any(func (bits): bits == level_bits):
-		# items don't spawn in the alligator level
-		load_item(level_bits == "101")
-	else:
-		# in the alligator level we may have a vine
-		pass
+	load_item(level_bits)
 	
 	
 func spawn_player():

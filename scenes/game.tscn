@@ -27,13 +27,33 @@ text = "1978"
 label_settings = SubResource("LabelSettings_iywne")
 horizontal_alignment = 2
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1672067445]
-offset_left = 48.0
+[node name="MinutesLabel" type="Label" parent="CanvasLayer" unique_id=1567688507]
+offset_left = 50.0
 offset_top = 16.0
-offset_right = 87.5
+offset_right = 71.5
 offset_bottom = 37.0
 scale = Vector2(2, 1)
-text = "19:47"
+text = "19"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 2
+
+[node name="TimerSeparatorLabel" type="Label" parent="CanvasLayer" unique_id=1672067445]
+offset_left = 79.0
+offset_top = 16.0
+offset_right = 89.5
+offset_bottom = 37.0
+scale = Vector2(2, 1)
+text = ":"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 2
+
+[node name="SecondsLabel" type="Label" parent="CanvasLayer" unique_id=1516529809]
+offset_left = 97.0
+offset_top = 16.0
+offset_right = 113.0
+offset_bottom = 37.0
+scale = Vector2(2, 1)
+text = "47"
 label_settings = SubResource("LabelSettings_iywne")
 horizontal_alignment = 2
 

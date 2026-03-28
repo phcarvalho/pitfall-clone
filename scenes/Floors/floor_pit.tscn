@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cao0srg8roonk"]
 
-[ext_resource type="PackedScene" uid="uid://bta7onik4g8yv" path="res://scenes/Floors/lake.tscn" id="1_0ysjc"]
+[ext_resource type="PackedScene" uid="uid://btaxsq3svaq2e" path="res://scenes/Floors/pit.tscn" id="1_0ysjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(86, 23)
@@ -49,4 +49,4 @@ shape = SubResource("RectangleShape2D_lnu2h")
 position = Vector2(109, 20.5)
 shape = SubResource("RectangleShape2D_jds4t")
 
-[node name="Lake" parent="." unique_id=1438254658 instance=ExtResource("1_0ysjc")]
+[node name="PitHole" parent="." unique_id=1438254658 instance=ExtResource("1_0ysjc")]
