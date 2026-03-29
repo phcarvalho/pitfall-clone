@@ -11,18 +11,13 @@ The project was built entirely using **Godot**, with assets recreated in **Asepr
 You can play the game in your browser here:
 - [Pitfall! Clone](https://phcarvalho.itch.io/pitfall-clone)
 
+---
+
 ## 🕹️ Controls
 
 * **← / → (Arrow Keys)** — Walk
 * **Space** — Jump
 * **↑ / ↓ (Arrow Keys)** — Climb stairs
-
----
-
-## 🛠️ Tech Stack
-
-* **Engine:** Godot
-* **Art:** Aseprite
 
 ---
 
