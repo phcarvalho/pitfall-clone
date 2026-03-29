@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bnh33u7fhg0j2"]
+
+[ext_resource type="Script" uid="uid://dsabxv2me7vyh" path="res://scripts/enemy.gd" id="1_a250b"]
+[ext_resource type="Texture2D" uid="uid://wmvukso1xkag" path="res://assets/snake_spritesheet.png" id="1_uprpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a250b"]
+atlas = ExtResource("1_uprpt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcdrh"]
+atlas = ExtResource("1_uprpt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0y5n7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a250b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a250b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a250b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a250b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a250b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcdrh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uprpt"]
+size = Vector2(12, 12)
+
+[node name="Snake" type="Area2D" unique_id=585428970]
+collision_layer = 8
+script = ExtResource("1_a250b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746764394]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_0y5n7")
+autoplay = "default"
+frame_progress = 0.3017393
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=265305511]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_uprpt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

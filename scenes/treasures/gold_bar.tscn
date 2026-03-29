@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cf3hnala37gx7"]
+
+[ext_resource type="Script" uid="uid://cartyku3dvvhv" path="res://scripts/treasure.gd" id="1_oqn8e"]
+[ext_resource type="Texture2D" uid="uid://cct354dkwsjyi" path="res://assets/treasure_gold.png" id="2_wd3oe"]
+[ext_resource type="Texture2D" uid="uid://xdps0fcu1tiu" path="res://assets/treasure_detail_spritesheet.png" id="3_eecfu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xst5s"]
+atlas = ExtResource("3_eecfu")
+region = Rect2(0, 0, 9, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l8h5"]
+atlas = ExtResource("3_eecfu")
+region = Rect2(9, 0, 9, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlrea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xst5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l8h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xst5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xst5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xst5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l8h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l8h5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xst5s"]
+size = Vector2(10, 9)
+
+[node name="GoldBar" type="Area2D" unique_id=1260227871]
+script = ExtResource("1_oqn8e")
+
+[node name="TreasureGold" type="Sprite2D" parent="." unique_id=351326735]
+position = Vector2(0, 1)
+texture = ExtResource("2_wd3oe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=615892728]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_jlrea")
+autoplay = "default"
+frame_progress = 0.7214456
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1777496767]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xst5s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

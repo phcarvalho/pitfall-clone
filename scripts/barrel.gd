@@ -2,11 +2,10 @@ extends Area2D
 
 @export var is_static := true
 @export var count := 1
-var speed = 50
+var speed = 60
 
 @onready var anim_upper = $AnimationUpper
 @onready var anim_bottom = $AnimationBottom
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,9 +23,11 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("set_is_being_hurt"):
+		sound_manager.play_sound("barrel")
 		body.set_is_being_hurt(true)
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("set_is_being_hurt"):
+		sound_manager.stop_sound()
 		body.set_is_being_hurt(false)

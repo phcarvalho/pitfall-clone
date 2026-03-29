@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqbl8klpigt72"]
+
+[ext_resource type="Script" uid="uid://cartyku3dvvhv" path="res://scripts/treasure.gd" id="1_vhkx0"]
+[ext_resource type="Texture2D" uid="uid://b1f4kudy5ffju" path="res://assets/treasure_sack_of_gold.png" id="2_xlg1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xst5s"]
+size = Vector2(10, 9)
+
+[node name="GoldSack" type="Area2D" unique_id=1260227871]
+script = ExtResource("1_vhkx0")
+
+[node name="TreasureSackOfGold" type="Sprite2D" parent="." unique_id=2129992508]
+position = Vector2(0, -1)
+texture = ExtResource("2_xlg1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1777496767]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xst5s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

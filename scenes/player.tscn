@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bbhd70ulsx4xq" path="res://assets/player_spritesheet.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cocjs1sfsok67" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://dlmw5xtqjot24" path="res://assets/sounds/jump.wav" id="3_dqkch"]
+[ext_resource type="AudioStream" uid="uid://p2aynjl2cdg5" path="res://assets/sounds/die.wav" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://b3l5mj8ff6jmg" path="res://assets/sounds/falling.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_4flbx")
@@ -106,3 +109,14 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286875115]
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="Audios" type="Node" parent="." unique_id=297821128]
+
+[node name="JumpSoundPlayer" type="AudioStreamPlayer" parent="Audios" unique_id=1074229987]
+stream = ExtResource("3_dqkch")
+
+[node name="DieSoundPlayer" type="AudioStreamPlayer" parent="Audios" unique_id=1202581873]
+stream = ExtResource("4_qlg0r")
+
+[node name="FallingSoundPlayer" type="AudioStreamPlayer" parent="Audios" unique_id=1367435218]
+stream = ExtResource("5_qlg0r")

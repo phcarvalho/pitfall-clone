@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://d4j5s8y086mlb"]
+
+[ext_resource type="PackedScene" uid="uid://cwc7incxh2yyr" path="res://scenes/floors/stair.tscn" id="1_1vred"]
+[ext_resource type="PackedScene" uid="uid://b3gl6bx5dpmqw" path="res://scenes/floors/hole.tscn" id="3_loaa1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(84, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vred"]
+size = Vector2(33, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jds4t"]
+size = Vector2(102, 23)
+
+[node name="Floor" type="StaticBody2D" unique_id=1029778056]
+collision_layer = 2
+
+[node name="MainFloor" type="ColorRect" parent="." unique_id=1898631250]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -0.5
+offset_right = 160.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.75686276, 0.7529412, 0.28235295, 1)
+
+[node name="DarkerFloor" type="ColorRect" parent="." unique_id=105016333]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 17.0
+offset_right = 160.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54509807, 0.5647059, 0.14901961, 1)
+
+[node name="FloorLeft" type="CollisionShape2D" parent="." unique_id=1577227283]
+position = Vector2(-118, 20.5)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="FloorCenterLeft" type="CollisionShape2D" parent="." unique_id=724009144]
+position = Vector2(-33.5, 20.5)
+shape = SubResource("RectangleShape2D_1vred")
+
+[node name="FloorCenterRight" type="CollisionShape2D" parent="." unique_id=180534062]
+position = Vector2(15.5, 20.5)
+shape = SubResource("RectangleShape2D_1vred")
+
+[node name="FloorRight" type="CollisionShape2D" parent="." unique_id=359797820]
+position = Vector2(109, 20.5)
+shape = SubResource("RectangleShape2D_jds4t")
+
+[node name="Stairs" parent="." unique_id=1000053238 instance=ExtResource("1_1vred")]
+position = Vector2(-9, 12)
+
+[node name="Hole" parent="." unique_id=1615768739 instance=ExtResource("3_loaa1")]
+position = Vector2(-63, 12)
+
+[node name="Hole2" parent="." unique_id=1928828217 instance=ExtResource("3_loaa1")]
+position = Vector2(45, 12)

@@ -4,6 +4,7 @@ extends Node2D
 @onready var minutes_timer = $CanvasLayer/MinutesLabel
 @onready var seconds_timer = $CanvasLayer/SecondsLabel
 @onready var lifes = $CanvasLayer/LifesLabel
+@onready var won_screen = $CanvasLayer/WonScreen
 
 @onready var current_life = game_state.lifes
 
@@ -61,6 +62,10 @@ func do_load_new_level(new_room, on_left = false, on_cave = false):
 	add_child(new_level)
 	current_level.queue_free()
 	current_level = new_level
+	
+func end_game():
+	won_screen.visible = true
+	get_tree().paused = true
 
 func _on_floor_right_body_entered(body: Node2D) -> void:
 	var new_room = move_to_right_room(game_state.current_room)

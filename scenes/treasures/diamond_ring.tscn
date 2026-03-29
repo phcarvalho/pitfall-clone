@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bcl24ydlihqwl"]
+
+[ext_resource type="Script" uid="uid://cartyku3dvvhv" path="res://scripts/treasure.gd" id="1_25bo8"]
+[ext_resource type="Texture2D" uid="uid://du2k1l23gs37l" path="res://assets/treasure_diamond_ring.png" id="2_25bo8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xst5s"]
+size = Vector2(10, 9)
+
+[node name="DiamondRing" type="Area2D" unique_id=1260227871]
+script = ExtResource("1_25bo8")
+
+[node name="TreasureDiamondRing" type="Sprite2D" parent="." unique_id=1973750180]
+position = Vector2(0, -2)
+texture = ExtResource("2_25bo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1777496767]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xst5s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

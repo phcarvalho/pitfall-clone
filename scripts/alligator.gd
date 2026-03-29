@@ -6,6 +6,10 @@ extends StaticBody2D
 
 var is_opened := true
 
+func _ready() -> void:
+	opened_shape.disabled = false
+	closed_shape.disabled = true
+
 
 func _on_timer_timeout() -> void:
 	is_opened = not is_opened

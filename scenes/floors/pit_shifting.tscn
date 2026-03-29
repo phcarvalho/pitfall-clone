@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://5qb2yh2txs3u"]
+
+[ext_resource type="Script" uid="uid://glidm3ukpyge" path="res://scripts/pit_shifting.gd" id="1_kjqtj"]
+[ext_resource type="Texture2D" uid="uid://ga4uasxda1dr" path="res://assets/pit_spritesheet.png" id="3_kjqtj"]
+[ext_resource type="Texture2D" uid="uid://c4wadvk5al5of" path="res://assets/pit_front_spritesheet.png" id="4_kjqtj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40qur"]
+atlas = ExtResource("3_kjqtj")
+region = Rect2(0, 0, 132, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7b6g"]
+atlas = ExtResource("3_kjqtj")
+region = Rect2(0, 10, 132, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yahx"]
+atlas = ExtResource("3_kjqtj")
+region = Rect2(0, 20, 132, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jdlx"]
+atlas = ExtResource("3_kjqtj")
+region = Rect2(0, 30, 132, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g546m"]
+atlas = ExtResource("3_kjqtj")
+region = Rect2(0, 40, 132, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7db1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40qur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7b6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yahx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jdlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g546m")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g546m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jdlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yahx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7b6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40qur")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7db1q"]
+atlas = ExtResource("4_kjqtj")
+region = Rect2(0, 0, 132, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ees08"]
+atlas = ExtResource("4_kjqtj")
+region = Rect2(0, 24, 132, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wivay"]
+atlas = ExtResource("4_kjqtj")
+region = Rect2(0, 48, 132, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cqfg"]
+atlas = ExtResource("4_kjqtj")
+region = Rect2(0, 72, 132, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_581u5"]
+atlas = ExtResource("4_kjqtj")
+region = Rect2(0, 96, 132, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pr1bh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7db1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wivay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cqfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_581u5")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_581u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cqfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wivay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7db1q")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jq3k"]
+size = Vector2(132, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjqtj"]
+size = Vector2(0, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40qur"]
+size = Vector2(0, 16)
+
+[node name="PitShifting" type="Area2D" unique_id=1438254658]
+collision_layer = 16
+script = ExtResource("1_kjqtj")
+
+[node name="AnimationBack" type="AnimatedSprite2D" parent="." unique_id=722531900]
+position = Vector2(-8, 8)
+sprite_frames = SubResource("SpriteFrames_7db1q")
+animation = &"closing"
+autoplay = "closing"
+
+[node name="AnimationFront" type="AnimatedSprite2D" parent="." unique_id=449510727]
+z_index = 5
+position = Vector2(-8, 21)
+sprite_frames = SubResource("SpriteFrames_pr1bh")
+animation = &"closing"
+autoplay = "closing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1661678251]
+z_index = 10
+position = Vector2(-8, 10)
+shape = SubResource("RectangleShape2D_3jq3k")
+
+[node name="CaveFront" type="ColorRect" parent="." unique_id=502491865]
+z_index = 5
+offset_left = -74.0
+offset_top = 32.0
+offset_right = 58.0
+offset_bottom = 45.0
+color = Color(0, 0, 0, 1)
+
+[node name="LeftSide" type="StaticBody2D" parent="." unique_id=809786257]
+position = Vector2(-74, 9)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftSide" unique_id=1795133705]
+z_index = 10
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_kjqtj")
+
+[node name="RightSide" type="StaticBody2D" parent="." unique_id=1770559552]
+position = Vector2(58, 9)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightSide" unique_id=1334780348]
+z_index = 10
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_40qur")
+
+[node name="Timer" type="Timer" parent="." unique_id=1062067082]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_changed" from="AnimationBack" to="." method="_on_animation_back_animation_changed"]
+[connection signal="animation_finished" from="AnimationBack" to="." method="_on_animation_back_animation_finished"]
+[connection signal="frame_changed" from="AnimationBack" to="." method="_on_animation_back_frame_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
